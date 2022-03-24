@@ -17,3 +17,8 @@ post-training full integer quantized tflite models
 
 ## Jupyter notebooks used to check tflite models
 [test srgan tflite.ipynb](test%20srgan%20tflite.ipynb), [test edsr tflite.ipynb](test%20edsr%20tflite.ipynb), [test wdsr tflite.ipynb](test%20wdsr%20tflite.ipynb)
+
+## other files
+[data.py](data.py) from Martin Krasser's [super resolution](https://github.com/krasserm/super-resolution) repo, to use DIV2K dataset
+
+demo/*.png: low resolution cropped png from Martin Krasser's [super resolution](https://github.com/krasserm/super-resolution) repo
