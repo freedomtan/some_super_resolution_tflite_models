@@ -9,7 +9,6 @@ concrete_func = model.signatures[
   tf.saved_model.DEFAULT_SERVING_SIGNATURE_DEF_KEY]
 concrete_func.inputs[0].set_shape([1, 583, 876, 3])
 converter = tf.lite.TFLiteConverter.from_concrete_functions([concrete_func])
-converter.optimizations = [tf.lite.Optimize.DEFAULT]
 
 tflite_model = converter.convert()
 with open('models/tflite/esrgan_fixed.tflite', 'wb') as f:
@@ -26,6 +25,7 @@ def representative_data_gen():
     resized = tf.image.resize(input_value[0], (583, 876))
     yield [np.float32(resized)]
 
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
 converter.representative_dataset = representative_data_gen
 converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
 converter.inference_input_type = tf.uint8
