@@ -13,7 +13,7 @@ tfds.core.DatasetInfo(
     homepage='https://www.microsoft.com/applied-sciences/projects/imagepairs',
     data_path='/home/freedom/tensorflow_datasets/imagepairs/1.0.0',
     download_size=148.64 GiB,
-    dataset_size=162.46 GiB,
+    dataset_size=162.36 GiB,
     features=FeaturesDict({
         'image': Image(shape=(1146, 1737, 3), dtype=tf.uint8),
         'image_gt': Image(shape=(2292, 3474, 3), dtype=tf.uint8),
@@ -22,7 +22,7 @@ tfds.core.DatasetInfo(
     disable_shuffling=False,
     splits={
         'test': <SplitInfo num_examples=2827, num_shards=512>,
-        'train': <SplitInfo num_examples=8591, num_shards=1024>,
+        'train': <SplitInfo num_examples=8584, num_shards=1024>,
     },
     citation="""@article{https://doi.org/10.48550/arxiv.2004.08513,
       doi = {10.48550/ARXIV.2004.08513},
@@ -35,4 +35,15 @@ tfds.core.DatasetInfo(
       copyright = {arXiv.org perpetual, non-exclusive license}
     }""",
 )
+```
+
+Corrupted files in training set:
+```
+20170216_172555_ARC.png
+20170227_171103_ARC_gt.png
+20170227_173726_ARC_gt.png
+20170307_102241_ARC_gt.png
+20170307_103541_ARC_gt.png
+20170314_112838_ARC_gt.png
+20170329_181013_ARC.png
 ```
