@@ -1,7 +1,7 @@
 ```python
 tfds.core.DatasetInfo(
     name='imagepairs',
-    full_name='imagepairs/1.0.0',
+    full_name='imagepairs/1.1.0',
     description="""
     * ImagePairs Dataset
     
@@ -11,9 +11,9 @@ tfds.core.DatasetInfo(
     dimension (3,504 × 2,332 pixels).
     """,
     homepage='https://www.microsoft.com/applied-sciences/projects/imagepairs',
-    data_path='/home/freedom/tensorflow_datasets/imagepairs/1.0.0',
+    data_path='/home/freedom/tensorflow_datasets/imagepairs/1.1.0',
     download_size=148.64 GiB,
-    dataset_size=162.36 GiB,
+    dataset_size=162.34 GiB,
     features=FeaturesDict({
         'image': Image(shape=(1146, 1737, 3), dtype=tf.uint8),
         'image_gt': Image(shape=(2292, 3474, 3), dtype=tf.uint8),
@@ -21,7 +21,7 @@ tfds.core.DatasetInfo(
     supervised_keys=('image', 'image_gt'),
     disable_shuffling=False,
     splits={
-        'test': <SplitInfo num_examples=2827, num_shards=512>,
+        'test': <SplitInfo num_examples=2825, num_shards=512>,
         'train': <SplitInfo num_examples=8584, num_shards=1024>,
     },
     citation="""@article{https://doi.org/10.48550/arxiv.2004.08513,
@@ -46,4 +46,9 @@ Corrupted files in training set:
 20170307_103541_ARC_gt.png
 20170314_112838_ARC_gt.png
 20170329_181013_ARC.png
+```
+Corrupted files in test set:
+```
+20170420_172548_ARC_gt.png
+20170508_173500_ARC_gt.png
 ```
