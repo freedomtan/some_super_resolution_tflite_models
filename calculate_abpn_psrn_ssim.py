@@ -38,7 +38,7 @@ def abpn(scale=3, in_channels=3, num_fea=28, m=4, out_channels=3):
     return Model(inputs=inp, outputs=out, name='abpn')
 
 model = abpn(2) # ABPN super resolution scale = 2
-model.load_weights('models/checkpoint/abpn_x2/checkpoint')
+model.load_weights('models/checkpoint/abpn_x2/checkpoint').expect_partial()
 
 psnrs = []
 ssims = []
