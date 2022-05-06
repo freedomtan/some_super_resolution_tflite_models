@@ -48,7 +48,7 @@ for i in ds_test:
     psnrs.append(tf.image.psnr(sr, i['hr'], max_val = 255.0))
     ssims.append(tf.image.ssim(sr, i['hr'], max_val = 255.0))
 
-print("div2k:", tf.reduce_mean(psnrs), tf.reduce_mean(ssims))
+print("DIV2K (PSNR, SSIM) trained with DIV2K:", tf.reduce_mean(psnrs), tf.reduce_mean(ssims))
 
 import imagepairs
 ip_test = tfds.load('imagepairs', split='test')
@@ -56,9 +56,24 @@ ip_test = tfds.load('imagepairs', split='test')
 psnrs = []
 ssims = []
 
-for i in ip_test:
-    sr = tf.cast(model(tf.expand_dims(i['image'], 0)), tf.uint8)
-    psnrs.append(tf.image.psnr(sr, i['image_gt'], max_val = 255.0))
-    ssims.append(tf.image.ssim(sr, i['image_gt'], max_val = 255.0))
+for a in ip_test:
+    sr = tf.cast(model(tf.expand_dims(a['image'], 0)), tf.uint8)
+    sr_q = tf.image.central_crop(sr, 0.25)
+    hr_q = tf.image.central_crop(a['image_gt'], 0.25)
+    psnrs.append(tf.image.psnr(sr_q, hr_q, max_val=255.0))
+    ssims.append(tf.image.ssim(sr_q, hr_q, max_val=255.0))
 
-print("imagepairs:", tf.reduce_mean(psnrs), tf.reduce_mean(ssims))
+print("ImagePairs (PSNR, SSIM) trained with DIV2K:", tf.reduce_mean(psnrs), tf.reduce_mean(ssims))
+
+model.load_weights('models/checkpoint/abpn_x2_ip/checkpoint').expect_partial()
+psnrs = []
+ssims = []
+
+for a in ip_test:
+    sr = tf.cast(model(tf.expand_dims(a['image'], 0)), tf.uint8)
+    sr_q = tf.image.central_crop(sr, 0.25)
+    hr_q = tf.image.central_crop(a['image_gt'], 0.25)
+    psnrs.append(tf.image.psnr(sr_q, hr_q, max_val=255.0))
+    ssims.append(tf.image.ssim(sr_q, hr_q, max_val=255.0))
+
+print("ImagePairs (PSNR, SSIM) trained with ImagePairs:", tf.reduce_mean(psnrs), tf.reduce_mean(ssims))
