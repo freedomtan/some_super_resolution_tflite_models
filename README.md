@@ -28,4 +28,7 @@ post-training full integer quantized tflite models
 * PSNR, SSIM evaluated with DIV2K: 33.37, 0.93
 * PSNR, SSIM evaluated with ImagePairs: 22.06, 0.73
 
+[train_abpn_ip.py](train_abpn_ip.py): a self-contained script to train ABPN with ImagePairs dataset
+* (PSNR, SSIM) evaluated with ImagePairs: (23.95284, 0.76988685)
+
 demo/*.png: low resolution cropped png from Martin Krasser's [super resolution](https://github.com/krasserm/super-resolution) repo
