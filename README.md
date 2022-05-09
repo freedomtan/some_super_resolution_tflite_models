@@ -9,11 +9,19 @@ TensorFlow models in saved_model format.
 
 * [models/saved_model/esrgan](models/saved_model/esrgan): from [TFHub ESRGAN](https://tfhub.dev/captain-pool/esrgan-tf2/1)
 
+## models/checkpoint/
+Some checkpoints for ABPN
+* models/checkpoint/abpn_x2: abpn x2 trained with DIV2K
+* models/checkpoint/abpn_x2_ip: abpn x2 trained with ImagePairs
+
 ## models/tflite
 fp32 tflite models
 
 ## models/tflite_quant
 post-training full integer quantized tflite models
+
+## scripts used to train ABPN with ImagePairs
+[train_abpn_ip.py](train_abpn_ip.py)
 
 ## scripts used to generate tflite models
 [srgan.py](srgan.py), [edsr.py](edsr.py), [wdsr.py](wdsr.py), [esrgan.py](esrgan.py)
